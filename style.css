@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.levels {
+  display: flex;
+  flex-direction: row;
+}
+
+.level {
+  margin: 0 5px 20px 0;
+}
+
+.container button {
+  width: 100px;
+  height: 100px;
+  content: "";
+  padding: 50px;
+  margin: 2px 0;
+}
