@@ -12,23 +12,30 @@ function $$(selector, el) {
 }
 
 // Creating button in relation to level selected
-function chLevel(params) {
-	
-}
-	console.log($$(".level"));
-  $(".level").addEventListener("click", function(){
-    switch (levels) {
-      case (levels.value = "easy"):
-        console.log("easy");
-        break;
-      case (levels.value = "intermediate"):
-        console.log("intermediate");
-        break;
-      case (levels.value = "hard"):
-        console.log("hard");
-        break;
-
-      default:
-        break;
-    }
-  });
+  let levels = $$(".level");
+  const container = $("div .container");
+  // console.log(levels);
+  for (let i = 0; i < levels.length; i++) {
+    levels[i].addEventListener("click", function() {
+      switch (levels[i].value) {
+        case "easy":
+          // console.log("button easy");
+          let lines = document.createElement("div");
+          lines.classList.add('line');
+          let buttons = document.createElement("button");
+          buttons.classList.add()
+          container.appendChild(lines*2);
+          break;
+          case "intermediate":
+            // console.log("button intermediate")
+          break;
+          case "hard":
+            // console.log("button hard")
+          break;
+      
+        default:
+          break;
+      }
+    });;
+    
+  }
