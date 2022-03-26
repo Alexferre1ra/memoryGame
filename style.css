@@ -19,10 +19,15 @@ body {
   margin: 0 5px 20px 0;
 }
 
-.container button {
+.tile {
   width: 100px;
   height: 100px;
   content: "";
   padding: 50px;
-  margin: 2px 0;
+  margin: 2px 2px;
+}
+.container{
+  width: 216px;
+  flex-wrap: wrap;
+  display: flex;
 }
