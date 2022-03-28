@@ -15,7 +15,7 @@ body {
   flex-direction: row;
 }
 
-.level {
+.difficulty {
   margin: 0 5px 20px 0;
 }
 
@@ -25,9 +25,29 @@ body {
   content: "";
   padding: 50px;
   margin: 2px 2px;
+  cursor: pointer;
 }
+.tile.blink {
+  animation: 1s blink ease-in-out 1;
+}
+
 .container{
   width: 216px;
   flex-wrap: wrap;
   display: flex;
+}
+.container.avoid-tap {
+  pointer-events: none;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
