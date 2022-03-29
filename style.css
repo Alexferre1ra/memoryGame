@@ -22,7 +22,6 @@ body {
 .tile {
   width: 100px;
   height: 100px;
-  content: "";
   padding: 50px;
   margin: 2px 2px;
   cursor: pointer;
