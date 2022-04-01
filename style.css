@@ -30,7 +30,35 @@ body {
   animation: 1s blink ease-in-out 1;
 }
 
-.container{
+button #1 {
+  background-color: red;
+}
+button #2 {
+  background-color: blue;
+}
+button #3 {
+  background-color: yellow;
+}
+button #4 {
+  background-color: green;
+}
+button #5 {
+  background-color: orange;
+}
+button #6 {
+  background-color: pink;
+}
+button #7 {
+  background-color: blueviolet;
+}
+button #8 {
+  background-color: turquoise;
+}
+button #9 {
+  background-color: violet;
+}
+
+.container {
   width: 216px;
   flex-wrap: wrap;
   display: flex;

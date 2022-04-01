@@ -23,7 +23,21 @@ const difficulties = $$(".difficulty"); // difficulties btns
 const level = document.querySelector("#level");
 const container = $(".container"); // tile's container
 const heading = document.getElementById("heading"); // heading h1
-const tiles = $$(".tile");
+const colors = [
+  "red",
+  "blue",
+  "yellow",
+  "green",
+  "orange",
+  "pink",
+  "blueviolet",
+  "turquoise",
+  "violet",
+];
+const record = document.getElementById("record");
+const reloadButton = document.querySelector(".reload");
+
+var tiles = [];
 var arrTiles = [];
 
 container.classList.add("avoid-tap");
@@ -76,6 +90,13 @@ function newTiles(container, heading) {
         default:
           break;
       }
+      tiles = $$(".tile");
+
+      for (let j = 0; j < tiles.length; j++) {
+        for (let i = 0; i < colors.length; i++) {
+          tiles[j].style.backgroundColor = colors[i];
+        }
+      }
 
       // disabled the difficulties choise
       difficulties.forEach((element) => {
@@ -90,9 +111,16 @@ function newTiles(container, heading) {
       // level.textContent = arrTiles.length;
       // check_sequence(); // reset when no parameters
 
-      arrTiles.push(get_random_tile(tiles)); // add the first one
+      // arrTiles.push(get_random_tile(tiles)); // add the first one
+
       show_sequence();
-      check_sequence();
+      // check_sequence();
+      // Click on one of the 4 pieces (numbers)
+      tiles.forEach((e) => {
+        e.addEventListener("click", function () {
+          check_sequence(Number(this.getAttribute("id")));
+        });
+      });
     });
   }
 }
@@ -100,7 +128,7 @@ function newTiles(container, heading) {
 /**
  * Generate next tile (number)
  */
-function get_random_tile(tiles) {
+function get_random_tile() {
   // generate a random number between the number of tiles and 1
   return Math.floor(Math.random() * tiles.length) + 1;
 }
@@ -135,7 +163,7 @@ function show_sequence() {
 /**
  * Check sequence
  */
-let check_sequence = (function (tiles) {
+let check_sequence = (function () {
   let i = 0;
 
   return function (tile) {
@@ -150,19 +178,28 @@ let check_sequence = (function (tiles) {
         // Keep playing
         if (i >= arrTiles.length) {
           // we have guessed all
-          level.textContent = arrTiles.length; // set level before add
+          level.textContent = arrTiles.length; // set level before add a new blinked tile
           arrTiles.push(get_random_tile(tiles)); // add one more
           show_sequence();
           i = 0; // check from the beggining
         }
       } else {
-        level.textContent = "☹ you failed";
+        level.textContent = "Too bad ☹ You loose! Try again";
         document.getElementById(tile).classList.add("fail");
         container.classList.add("avoid-tap");
         i = 0;
+        // Save user level if there is an improvement
+        if (localStorage.getItem("level") === null ||
+          pieces_.length - 1 > localStorage.getItem("level")) {
+          setTimeout(function() {
+            let name = prompt('Would you like to save your score? Write your name here:');
+            if (!name) return;
+            localStorage.setItem('name', name);
+            localStorage.setItem('level', tiles.length - 1);
+            record.textContent = `${name} reached level ${tiles.length - 1}`;
+          }, 10);
+        }
       }
     }
   };
 })();
-
-newGame();
