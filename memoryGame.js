@@ -30,7 +30,6 @@ container.classList.add("avoid-tap");
 
 function newGame() {
   newTiles(container, heading);
-  
 }
 
 function createTile(j) {
