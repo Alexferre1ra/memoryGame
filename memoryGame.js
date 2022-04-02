@@ -92,30 +92,22 @@ function newTiles(container, heading) {
       }
       tiles = $$(".tile");
 
-      for (let j = 0; j < tiles.length; j++) {
-        for (let i = 0; i < colors.length; i++) {
-          tiles[j].style.backgroundColor = colors[i];
-        }
-      }
+      // random colors for each tiles created
+      tiles.forEach((newTile) => {
+        const randColor = Math.floor(Math.random() * 16777215).toString(16);
+        newTile.style.backgroundColor = "#" + randColor;
+      });
 
       // disabled the difficulties choise
-      difficulties.forEach((element) => {
-        element.setAttribute("disabled", true);
+      difficulties.forEach((btnDifficulty) => {
+        btnDifficulty.setAttribute("disabled", true);
       });
 
       //change the heading content when game start
       heading.innerHTML = "Now Repeat the sequencies";
 
-      // // Clear
-      // arrTiles = []; // reset sequence
-      // level.textContent = arrTiles.length;
-      // check_sequence(); // reset when no parameters
-
-      // arrTiles.push(get_random_tile(tiles)); // add the first one
-
       show_sequence();
-      // check_sequence();
-      // Click on one of the 4 pieces (numbers)
+
       tiles.forEach((e) => {
         e.addEventListener("click", function () {
           check_sequence(Number(this.getAttribute("id")));
@@ -185,17 +177,20 @@ let check_sequence = (function () {
         }
       } else {
         level.textContent = "Too bad ☹ You loose! Try again";
-        document.getElementById(tile).classList.add("fail");
         container.classList.add("avoid-tap");
         i = 0;
         // Save user level if there is an improvement
-        if (localStorage.getItem("level") === null ||
-          pieces_.length - 1 > localStorage.getItem("level")) {
-          setTimeout(function() {
-            let name = prompt('Would you like to save your score? Write your name here:');
+        if (
+          localStorage.getItem("level") === null ||
+          tiles.length - 1 > localStorage.getItem("level")
+        ) {
+          setTimeout(function () {
+            let name = prompt(
+              "Would you like to save your score? Write your name here:"
+            );
             if (!name) return;
-            localStorage.setItem('name', name);
-            localStorage.setItem('level', tiles.length - 1);
+            localStorage.setItem("name", name);
+            localStorage.setItem("level", tiles.length - 1);
             record.textContent = `${name} reached level ${tiles.length - 1}`;
           }, 10);
         }
@@ -203,3 +198,8 @@ let check_sequence = (function () {
     }
   };
 })();
+
+// Reload everything:
+function reload() {
+  reload = location.reload();
+}

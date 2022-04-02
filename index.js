@@ -1,3 +1,4 @@
+// init new game
 newGame();
 
 // Clear
@@ -7,16 +8,11 @@ check_sequence(); // reset when no parameters
 
 arrTiles.push(get_random_tile(tiles)); // add the first one
 
-
 // Last best winner
 if (localStorage.getItem("name")) {
   record.textContent = `${localStorage.getItem("name")} reached 
-  	level ${localStorage.getItem("level")}`;
+level ${localStorage.getItem("level")}`;
 }
 
-// Reload everything:
-function reload() {
-  reload = location.reload();
-}
 // Event listeners for reload
 reloadButton.addEventListener("click", reload, false);
