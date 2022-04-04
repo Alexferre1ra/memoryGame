@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-body {
+.game {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,31 +30,31 @@ body {
   animation: 1s blink ease-in-out 1;
 }
 
-button #1 {
+.tile#1 {
   background-color: red;
 }
-button #2 {
+.tile#2 {
   background-color: blue;
 }
-button #3 {
+.tile#3 {
   background-color: yellow;
 }
-button #4 {
+.tile#4 {
   background-color: green;
 }
-button #5 {
+.tile#5 {
   background-color: orange;
 }
-button #6 {
+.tile#6 {
   background-color: pink;
 }
-button #7 {
+.tile#7 {
   background-color: blueviolet;
 }
-button #8 {
+.tile#8 {
   background-color: turquoise;
 }
-button #9 {
+.tile#9 {
   background-color: violet;
 }
 

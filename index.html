@@ -8,17 +8,21 @@
     <title>Memory Game</title>
   </head>
   <body>
-    <h1 id="heading">Choose your Difficulty :</h1>
-    <div class="levels">
-      <button class="difficulty" value="easy">Easy</button>
-      <button class="difficulty" value="intermediate">Intermediate</button>
-      <button class="difficulty" value="hard">Hard</button>
-    </div>
-    <div>Current level: <span id="level"></span></div>
-    <div class="container"></div>
-    <div id="record"></div>
-    <button class="reload">Restart</button>
-
+    <main class="game">
+      <div class="records">
+        <h2>Scores Board</h2>
+        <div id="record"></div>
+      </div>
+      <h1 id="heading">Choose your Difficulty :</h1>
+      <div class="options">
+        <button class="difficulty" value="easy">Easy</button>
+        <button class="difficulty" value="intermediate">Intermediate</button>
+        <button class="difficulty" value="hard">Hard</button>
+        <button class="reload">Restart</button>
+      </div>
+      <div>Current level: <span id="level"></span></div>
+      <div class="container"></div>
+    </main>
     <script src="memoryGame.js"></script>
     <script src="index.js"></script>
   </body>
