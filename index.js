@@ -1,4 +1,4 @@
-container.classList.add("avoid-tap");
+
 // init new game
 newGame();
 

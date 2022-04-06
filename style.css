@@ -1,6 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster');
+
 * {
   box-sizing: border-box;
 }
+
+body {
+  color: #a3a1ff;
+  font-weight: bolder;
+  background-color: black;
+  font-family: 'Lobster';
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+h1,
+h2 {
+  font-family: 'Lobster';
+  color: #f24645;
+  text-shadow: #f24645 .125rem 0 .625rem;
+  text-align: center;
+  font-size: 3.75rem;
+}
+
+.difficulty {
+  width: 10rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 1.25rem;
+  height: 3.4375rem;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 3.125rem;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.difficulty:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.difficulty:focus {
+  outline: none;
+}
+
+.diff {
+  background-image: linear-gradient(to right,
+      #6253e1,
+      #852d91,
+      #a3a1ff,
+      #f24645);
+  box-shadow: 0 .25rem .9375rem 0 rgba(126, 52, 161, 0.75);
+}
+
+.reload {
+  width: 10rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 1.25rem;
+  height: 3.4375rem;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 3.125rem;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.reload:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.reload:focus {
+  outline: none;
+}
+
+.rel {
+  background-image: linear-gradient(to right,
+      #eb3941,
+      #f15e64,
+      #e14e53,
+      #e2373f);
+  box-shadow: 0 .3125rem .9375rem rgba(242, 97, 103, 0.4);
+}
+
 
 .game {
   display: flex;
@@ -10,59 +108,30 @@
   height: 100vh;
 }
 
-.levels {
-  display: flex;
-  flex-direction: row;
-}
-
 .difficulty {
-  margin: 0 5px 20px 0;
+  margin: 0 .3125rem 1.25rem 0;
 }
 
 .tile {
-  width: 100px;
-  height: 100px;
-  padding: 50px;
-  margin: 2px 2px;
+  width: 6.25rem;
+  height: 6.25rem;
+  padding: 3.125rem;
+  margin: .125rem .125rem;
   cursor: pointer;
+  border: none;
+  border-radius: .75rem;
 }
+
 .tile.blink {
   animation: 1s blink ease-in-out 1;
 }
 
-.tile#1 {
-  background-color: red;
-}
-.tile#2 {
-  background-color: blue;
-}
-.tile#3 {
-  background-color: yellow;
-}
-.tile#4 {
-  background-color: green;
-}
-.tile#5 {
-  background-color: orange;
-}
-.tile#6 {
-  background-color: pink;
-}
-.tile#7 {
-  background-color: blueviolet;
-}
-.tile#8 {
-  background-color: turquoise;
-}
-.tile#9 {
-  background-color: violet;
-}
-
 .container {
-  width: 216px;
+  width: 13.5rem;
   flex-wrap: wrap;
   display: flex;
 }
+
 .container.avoid-tap {
   pointer-events: none;
 }
@@ -71,9 +140,11 @@
   0% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
