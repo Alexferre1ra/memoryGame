@@ -23,7 +23,7 @@ const difficulties = $$(".difficulty"); // difficulties btns
 const level = document.querySelector("#level");
 const container = $(".container"); // tile's container
 const heading = document.getElementById("heading"); // heading h1
-const record = document.getElementById("record"); // scoreBoard
+const score = document.getElementById("score"); // scoreBoard
 const reloadButton = document.querySelector(".reload"); // reload
 
 var tiles = []; // tiles created
@@ -179,7 +179,7 @@ let check_sequence = (function () {
         // Save user level if there is an improvement
         if (
           localStorage.getItem("level") === null ||
-          tiles.length - 1 > localStorage.getItem("level")
+          arrTiles.length - 1 > localStorage.getItem("level")
         ) {
           setTimeout(function () {
             let name = prompt(
@@ -187,8 +187,8 @@ let check_sequence = (function () {
             );
             if (!name) return;
             localStorage.setItem("name", name);
-            localStorage.setItem("level", tiles.length - 1);
-            record.textContent = `${name} reached level ${tiles.length - 1}`;
+            localStorage.setItem("level", arrTiles.length - 1);
+            score.innerHTML = `${name} reached level ${arrTiles.length - 1}`;
           }, 10);
         }
       }
