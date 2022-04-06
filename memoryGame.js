@@ -29,7 +29,6 @@
   var tiles = [];
   var arrTiles = [];
   
-  container.classList.add("avoid-tap");
   
   function newGame() {
     newTiles(container, heading);
@@ -42,7 +41,7 @@
   }
   
   function newTiles(container, heading) {
-    // each level set a number of tile
+    // each difficulty set a number of tile
     for (let i = 0; i < difficulties.length; i++) {
       let j = 1;
       difficulties[i].addEventListener("click", function () {
@@ -122,7 +121,6 @@
   
     (function blink() {
       e = document.getElementById(arrTiles[i]);
-  
       e.classList.remove("blink"); // remove class
       void e.offsetWidth; // "restart" -> triggering reflow
       e.classList.add("blink"); // show animation
