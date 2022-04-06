@@ -47,7 +47,6 @@
       difficulties[i].addEventListener("click", function () {
         switch (difficulties[i].value) {
           case "easy":
-            // console.log("easy button");
             for (i = 0; i < 4; i++) {
               createTile(j);
               container.appendChild(newBtn);
@@ -56,7 +55,6 @@
             break;
   
           case "intermediate":
-            // console.log("intermediate button");
             for (i = 0; i < 6; i++) {
               createTile(j);
               container.style.width = "324px";
@@ -66,7 +64,6 @@
             break;
   
           case "hard":
-            // console.log("hard button");
             for (i = 0; i < 9; i++) {
               createTile(j);
               container.style.width = "324px";
